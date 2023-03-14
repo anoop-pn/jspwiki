@@ -374,7 +374,7 @@
           <compilerArgs>
             <arg>-Awarns</arg>
             <arg>-AannotatedPackages=com.test</arg>
-            <arg>-AenableCustomCheck=false</arg>
+            <arg>-AenableCustomCheck=true</arg>
           </compilerArgs>
         </configuration>
       </plugin>
