@@ -40,6 +40,8 @@ import org.apache.wiki.pages.PageManager;
 import org.apache.wiki.render.RenderingManager;
 import org.apache.wiki.util.TextUtil;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -125,8 +127,8 @@ public class DefaultReferenceManager extends BasePageFilter implements Reference
     private final boolean m_matchEnglishPlurals;
 
     private static final Logger LOG = LogManager.getLogger( DefaultReferenceManager.class);
-    private static final String SERIALIZATION_FILE = "refmgr.ser";
-    private static final String SERIALIZATION_DIR  = "refmgr-attr";
+    private static final @RUntainted String SERIALIZATION_FILE = "refmgr.ser";
+    private static final @RUntainted String SERIALIZATION_DIR  = "refmgr-attr";
 
     /** We use this also a generic serialization id */
     private static final long serialVersionUID = 4L;

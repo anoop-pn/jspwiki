@@ -34,6 +34,8 @@ import org.apache.wiki.util.PriorityList;
 import org.apache.wiki.util.XmlUtil;
 import org.jdom2.Element;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -100,7 +102,7 @@ public class DefaultFilterManager extends BaseModuleManager implements FilterMan
      *  @param props Properties to initialize the FilterManager with
      *  @throws WikiException If something goes wrong.
      */
-    public DefaultFilterManager( final Engine engine, final Properties props ) throws WikiException {
+    public DefaultFilterManager( final Engine engine, final @RUntainted Properties props ) throws WikiException {
         super( engine );
         initialize( props );
     }
@@ -153,7 +155,7 @@ public class DefaultFilterManager extends BaseModuleManager implements FilterMan
      *  @param props The list of properties. Typically, jspwiki.properties
      *  @throws WikiException If something goes wrong.
      */
-    protected void initialize( final Properties props ) throws WikiException {
+    protected void initialize( final @RUntainted Properties props ) throws WikiException {
         InputStream xmlStream = null;
         final String xmlFile = props.getProperty( PROP_FILTERXML ) ;
 

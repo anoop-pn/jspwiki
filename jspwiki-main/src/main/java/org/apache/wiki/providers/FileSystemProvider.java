@@ -23,6 +23,8 @@ import org.apache.logging.log4j.Logger;
 import org.apache.wiki.api.core.Page;
 import org.apache.wiki.api.exceptions.ProviderException;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,7 +45,7 @@ public class FileSystemProvider extends AbstractFileProvider {
     private static final Logger LOG = LogManager.getLogger( FileSystemProvider.class );
 
     /** All metadata is stored in a file with this extension. */
-    public static final String PROP_EXT = ".properties";
+    public static final @RUntainted String PROP_EXT = ".properties";
 
     /**
      *  {@inheritDoc}

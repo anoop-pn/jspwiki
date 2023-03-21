@@ -28,6 +28,8 @@ import org.apache.wiki.api.exceptions.WikiException;
 import org.apache.wiki.api.providers.AttachmentProvider;
 import org.apache.wiki.api.providers.WikiProvider;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -217,7 +219,7 @@ public interface AttachmentManager {
      *  @throws IOException If writing the attachment failed.
      *  @throws ProviderException If something else went wrong.
      */
-    default void storeAttachment( final Attachment att, final File source ) throws IOException, ProviderException {
+    default void storeAttachment( final Attachment att, final @RUntainted File source ) throws IOException, ProviderException {
         try( final InputStream in = Files.newInputStream( source.toPath() ) ) {
             storeAttachment( att, in );
         }

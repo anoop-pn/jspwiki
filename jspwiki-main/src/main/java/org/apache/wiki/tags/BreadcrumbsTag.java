@@ -24,6 +24,8 @@ import org.apache.wiki.api.core.ContextEnum;
 import org.apache.wiki.pages.PageManager;
 import org.apache.wiki.util.TextUtil;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspWriter;
 import java.io.IOException;
@@ -52,7 +54,7 @@ public class BreadcrumbsTag extends WikiTagBase
 
     private static final Logger LOG = LogManager.getLogger(BreadcrumbsTag.class);
     /** The name of the session attribute representing the breadcrumbtrail */
-    public static final String BREADCRUMBTRAIL_KEY = "breadCrumbTrail";
+    public static final @RUntainted String BREADCRUMBTRAIL_KEY = "breadCrumbTrail";
     private int m_maxQueueSize = 11;
     private String m_separator = ", ";
 

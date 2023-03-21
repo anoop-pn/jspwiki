@@ -19,6 +19,9 @@
 package org.apache.wiki.preferences;
 
 import com.google.gson.Gson;
+
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import org.apache.commons.lang3.LocaleUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -54,7 +57,7 @@ public class Preferences extends HashMap< String,String > {
     /**
      * The name under which a Preferences object is stored in the HttpSession. Its value is {@value}.
      */
-    public static final String SESSIONPREFS = "prefs";
+    public static final @RUntainted String SESSIONPREFS = "prefs";
 
     public static final String COOKIE_USER_PREFS_NAME = "JSPWikiUserPrefs";
 

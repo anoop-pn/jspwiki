@@ -26,6 +26,8 @@ import org.apache.wiki.auth.NoSuchPrincipalException;
 import org.apache.wiki.auth.WikiPrincipal;
 import org.apache.wiki.auth.WikiSecurityException;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -137,58 +139,58 @@ import java.util.Set;
 public class JDBCGroupDatabase implements GroupDatabase {
 	
     /** Default column name that stores the JNDI name of the DataSource. */
-    public static final String DEFAULT_GROUPDB_DATASOURCE = "jdbc/GroupDatabase";
+    public static final @RUntainted String DEFAULT_GROUPDB_DATASOURCE = "jdbc/GroupDatabase";
 
     /** Default table name for the table that stores groups. */
-    public static final String DEFAULT_GROUPDB_TABLE = "groups";
+    public static final @RUntainted String DEFAULT_GROUPDB_TABLE = "groups";
 
     /** Default column name that stores the names of group members. */
-    public static final String DEFAULT_GROUPDB_MEMBER_TABLE = "group_members";
+    public static final @RUntainted String DEFAULT_GROUPDB_MEMBER_TABLE = "group_members";
 
     /** Default column name that stores the the group creation timestamps. */
-    public static final String DEFAULT_GROUPDB_CREATED = "created";
+    public static final @RUntainted String DEFAULT_GROUPDB_CREATED = "created";
 
     /** Default column name that stores group creator names. */
-    public static final String DEFAULT_GROUPDB_CREATOR = "creator";
+    public static final @RUntainted String DEFAULT_GROUPDB_CREATOR = "creator";
 
     /** Default column name that stores the group names. */
-    public static final String DEFAULT_GROUPDB_NAME = "name";
+    public static final @RUntainted String DEFAULT_GROUPDB_NAME = "name";
 
     /** Default column name that stores group member names. */
-    public static final String DEFAULT_GROUPDB_MEMBER = "member";
+    public static final @RUntainted String DEFAULT_GROUPDB_MEMBER = "member";
 
     /** Default column name that stores group last-modified timestamps. */
-    public static final String DEFAULT_GROUPDB_MODIFIED = "modified";
+    public static final @RUntainted String DEFAULT_GROUPDB_MODIFIED = "modified";
 
     /** Default column name that stores names of users who last modified groups. */
-    public static final String DEFAULT_GROUPDB_MODIFIER = "modifier";
+    public static final @RUntainted String DEFAULT_GROUPDB_MODIFIER = "modifier";
 
     /** The JNDI name of the DataSource. */
-    public static final String PROP_GROUPDB_DATASOURCE = "jspwiki.groupdatabase.datasource";
+    public static final @RUntainted String PROP_GROUPDB_DATASOURCE = "jspwiki.groupdatabase.datasource";
 
     /** The table that stores the groups. */
-    public static final String PROP_GROUPDB_TABLE = "jspwiki.groupdatabase.table";
+    public static final @RUntainted String PROP_GROUPDB_TABLE = "jspwiki.groupdatabase.table";
 
     /** The table that stores the names of group members. */
-    public static final String PROP_GROUPDB_MEMBER_TABLE = "jspwiki.groupdatabase.membertable";
+    public static final @RUntainted String PROP_GROUPDB_MEMBER_TABLE = "jspwiki.groupdatabase.membertable";
 
     /** The column containing the group's creation timestamp. */
-    public static final String PROP_GROUPDB_CREATED = "jspwiki.groupdatabase.created";
+    public static final @RUntainted String PROP_GROUPDB_CREATED = "jspwiki.groupdatabase.created";
 
     /** The column containing the group creator's name. */
-    public static final String PROP_GROUPDB_CREATOR = "jspwiki.groupdatabase.creator";
+    public static final @RUntainted String PROP_GROUPDB_CREATOR = "jspwiki.groupdatabase.creator";
 
     /** The column containing the group's name. */
-    public static final String PROP_GROUPDB_NAME = "jspwiki.groupdatabase.name";
+    public static final @RUntainted String PROP_GROUPDB_NAME = "jspwiki.groupdatabase.name";
 
     /** The column containing the group member's name. */
-    public static final String PROP_GROUPDB_MEMBER = "jspwiki.groupdatabase.member";
+    public static final @RUntainted String PROP_GROUPDB_MEMBER = "jspwiki.groupdatabase.member";
 
     /** The column containing the group's last-modified timestamp. */
-    public static final String PROP_GROUPDB_MODIFIED = "jspwiki.groupdatabase.modified";
+    public static final @RUntainted String PROP_GROUPDB_MODIFIED = "jspwiki.groupdatabase.modified";
 
     /** The column containing the name of the user who last modified the group. */
-    public static final String PROP_GROUPDB_MODIFIER = "jspwiki.groupdatabase.modifier";
+    public static final @RUntainted String PROP_GROUPDB_MODIFIER = "jspwiki.groupdatabase.modifier";
 
     protected static final Logger LOG = LogManager.getLogger( JDBCGroupDatabase.class );
 

@@ -30,6 +30,8 @@ import org.apache.wiki.api.providers.WikiProvider;
 import org.apache.wiki.api.spi.Wiki;
 import org.apache.wiki.util.FileUtil;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -74,10 +76,10 @@ public class VersioningFileProvider extends AbstractFileProvider {
     private static final Logger LOG = LogManager.getLogger( VersioningFileProvider.class );
 
     /** Name of the directory where the old versions are stored. */
-    public static final String PAGEDIR = "OLD";
+    public static final @RUntainted String PAGEDIR = "OLD";
 
     /** Name of the property file which stores the metadata. */
-    public static final String PROPERTYFILE = "page.properties";
+    public static final @RUntainted String PROPERTYFILE = "page.properties";
 
     private CachedProperties m_cachedProperties;
 

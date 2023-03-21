@@ -23,15 +23,17 @@ import org.apache.wiki.api.exceptions.FilterException;
 import org.apache.wiki.api.filters.PageFilter;
 import org.apache.wiki.modules.ModuleManager;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.util.List;
 
 public interface FilterManager extends ModuleManager {
 
     /** Property name for setting the filter XML property file.  Value is <tt>{@value}</tt>. */
-    String PROP_FILTERXML = "jspwiki.filterConfig";
+    @RUntainted String PROP_FILTERXML = "jspwiki.filterConfig";
     
     /** Default location for the filter XML property file.  Value is <tt>{@value}</tt>. */
-    String DEFAULT_XMLFILE = "/WEB-INF/filters.xml";
+    @RUntainted String DEFAULT_XMLFILE = "/WEB-INF/filters.xml";
 
     /** JSPWiki system filters are all below this value. */
     int SYSTEM_FILTER_PRIORITY = -1000;

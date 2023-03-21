@@ -46,6 +46,8 @@ import org.apache.wiki.ui.progress.ProgressManager;
 import org.apache.wiki.util.HttpUtil;
 import org.apache.wiki.util.TextUtil;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -286,7 +288,7 @@ public class AttachmentServlet extends HttpServlet {
         }
     }
 
-    void sendError( final HttpServletResponse res, final String message ) throws IOException {
+    void sendError( final HttpServletResponse res, final @RUntainted String message ) throws IOException {
         try {
             res.sendError( HttpServletResponse.SC_INTERNAL_SERVER_ERROR, message );
         } catch( final IllegalStateException e ) {

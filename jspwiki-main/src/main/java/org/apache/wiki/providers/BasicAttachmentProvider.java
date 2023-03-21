@@ -33,6 +33,8 @@ import org.apache.wiki.pages.PageTimeComparator;
 import org.apache.wiki.util.FileUtil;
 import org.apache.wiki.util.TextUtil;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
@@ -93,7 +95,7 @@ public class BasicAttachmentProvider implements AttachmentProvider {
     public static final String PROP_DISABLECACHE = "jspwiki.basicAttachmentProvider.disableCache";
 
     /** The name of the property file. */
-    public static final String PROPERTY_FILE = "attachment.properties";
+    public static final @RUntainted String PROPERTY_FILE = "attachment.properties";
 
     /** The default extension for the page attachment directory name. */
     public static final String DIR_EXTENSION = "-att";
